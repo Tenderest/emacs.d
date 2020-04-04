@@ -11,3 +11,39 @@
 - 1. ~/.emacs.d/init.el
 - 2. ~/.emacs
 - 这两个会有冲突，保留一个即可
+** Org-mode
+- *代表标题的意思，和Markdown的#做为一级标题类似
+*** TODO list 的使用
+- C-c C-t 切换状态(TODO DONE NONE)
+*** Agenda 的使用
+**** Agenda可以用来做日程表
+- 只需将你的 *.org 文件放入上面所指定的文件夹中就可以开始使用 Agenda 模式了。
+- C-c C-s 选择想要开始的时间(Scheduled 开始时间)
+- C-c C-d 选择想要结束的时间(Deadline 最后期限)
+- C-c a 可以打开 Agenda 模式菜单并选择不同的可视方式（ r刷新 ）
+- 按 d 切换日视图 w 切换周视图 y 切换年视图
+*** 嵌入代码块
+- 输入<s <TAB>  后面再写什么语言
+- <C-c> ' 可以快捷的运行一个代码块
+**** 示例
+#+BEGIN_SRC emacs-lisp
+  (setq myname "liyunfeng")
+#+END_SRC
+
+#+BEGIN_SRC c
+#include <stdio.h>
+int main(void)
+{
+  char ch;
+  printf("Hello World!\n");
+  return 0;
+}
+#+END_SRC
+** Packages
+*** 安装/卸载/更新
+- 添加源后，就可以使用 M-x package-list-packages 来查看所有 MELPA 上的插件了。
+- 在表单中可以使用 I 安装 D 删除，U 更新，X 来确认。（直接按就行）
+- 内置(build-in)的无法卸载
+*** 插件的配置
+- 直接在init.el文件里编辑
+- 通过customize-group来选择配置
