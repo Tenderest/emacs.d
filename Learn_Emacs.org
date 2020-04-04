@@ -1,0 +1,13 @@
+* Learn Emacs
+** How to use Emacs
+- C-h t 打开练习教程
+- C-h   查看帮助
+- C-h k 按键
+- C-h v 变量
+- C-h f 函数
+- M-x   执行命令
+** Hack Emacs
+*** 配置文件
+- 1. ~/.emacs.d/init.el
+- 2. ~/.emacs
+- 这两个会有冲突，保留一个即可
