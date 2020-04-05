@@ -1,3 +1,5 @@
+(require 'org)
+
 ;; 设置默认 Org Agenda 文件目录
 (setq org-agenda-files '("~/Org_files"))
 

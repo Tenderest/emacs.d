@@ -15,6 +15,11 @@
 (global-set-key (kbd "C-x C-r") 'recentf-open-files)
 (global-set-key (kbd "C-x C-r") 'counsel-recentf)
 
+;; 查找在git管理下的文件，需要提交以后才能查找
+;; C-c 修饰键指用户自己定义的快捷键修饰
+;; p : Project
+;; f : Files
+(global-set-key (kbd "C-c p f") 'counsel-git)
 
 (global-set-key (kbd "<f11>") 'load-theme)
 

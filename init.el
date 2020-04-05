@@ -14,10 +14,13 @@
 ;; 快捷键放在init-keybindings.el文件中
 
 
-(require 'init-packages)
-(require 'init-ui)
-(require 'init-better-defaults)
-(require 'init-org)
-(require 'init-keybindings)
+(require 'init-ui)              ;; 视觉层配置
+(require 'init-org)             ;; Org 模式相关的全部设定
+(require 'init-packages)        ;; 插件管理
+(require 'init-keybindings)     ;; 快捷键绑定
+(require 'init-better-defaults) ;; 增强内置功能
+;;custome.el              # 存放使用编辑器接口产生的配置信息
+
 
 (setq custom-file (expand-file-name "other-init-lisp/custom.el" user-emacs-directory))
+(load-file custom-file)
