@@ -13,7 +13,7 @@
 - 这两个会有冲突，保留一个即可
 ** Org-mode
 - *代表标题的意思，和Markdown的#做为一级标题类似
-*** TODO list 的使用
+*** \TODO list 的使用
 - C-c C-t 切换状态(TODO DONE NONE)
 *** Agenda 的使用
 **** Agenda可以用来做日程表

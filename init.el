@@ -25,6 +25,7 @@
 		js2-mode
 		;; --- Themes ---
 		monokai-theme
+		gruvbox-theme
 		;; solarized-theme
 		) "Default packages")
 
@@ -42,9 +43,12 @@
        (when (not (package-installed-p pkg))
 	 (package-install pkg))))
 
+;; list packages
+(global-set-key (kbd "<f10>") 'package-list-packages)
 ;; ================插件的配置=========================
 ;; 启动石加载主题
-(load-theme 'monokai 1)
+;;(load-theme 'monokai 1)
+(load-theme 'gruvbox t)
 
 
 ;; js2-mode configurations 设置打开JavaScript文件的Major Mode
@@ -60,12 +64,12 @@
 
 
 ;; Swiper&counsel configurations 更好的提示
-(ivy-mode 1)
+(ivy-mode t)
 (setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
 ;; enable this if you want `swiper' to use it
 ;; (setq search-default-mode #'char-fold-to-regexp)
-(global-set-key "\C-s" 'swiper)
+;;(global-set-key "\C-s" 'swiper)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "<f6>") 'ivy-resume)
 (global-set-key (kbd "M-x") 'counsel-M-x)
@@ -88,14 +92,18 @@
 ;; 关闭工具栏，tool-bar-mode 即为一个 Minor Mode
 ;;(tool-bar-mode -1)
 
+;; 自动刷新文件
+(global-auto-revert-mode t)
+
+
 ;; 关闭文件滑动控件
 (scroll-bar-mode -1)
 
 ;; 显示行号
-(global-linum-mode 1)
+(global-linum-mode t)
 
 ;; 关闭启动帮助画面
-(setq inhibit-splash-screen 1)
+(setq inhibit-splash-screen t)
 
 ;; 快速打开配置文件
 (defun open-init-file ()
@@ -105,21 +113,23 @@
 (global-set-key (kbd "<f12>") 'open-init-file)
 
 ;; 开启全局补全
-(global-company-mode 1)
+(global-company-mode t)
 
 ;; 关闭自动备份
 (setq make-backup-files nil)
+(setq auto-save-default nil)
 
 
 (require 'recentf)
-(recentf-mode 1)
+(recentf-mode t)
 (setq recentf-max-menu-item 20)
 
 ;; 这个快捷键绑定可以用之后的插件 counsel 代替
 (global-set-key (kbd "C-x C-r") 'recentf-open-files)
+(global-set-key (kbd "C-x C-r") 'counsel-recentf)
 
 ;; 替换选中部分文字
-(delete-selection-mode 1)
+(delete-selection-mode t)
 
 ;; 将 Emacs 设置为开启默认全屏
 (setq initial-frame-alist (quote ((fullscreen . maximized))))
@@ -128,13 +138,14 @@
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
 ;; 高亮当前行，当文本内容很多时可以很容易找到光标的位置
-(global-hl-line-mode 1)
+(global-hl-line-mode t)
 
 ;; 设置默认 Org Agenda 文件目录
 (setq org-agenda-files '("~/Org_files"))
 
 ;; 设置 org-agenda 打开快捷键
 (global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "<f11>") 'load-theme)
 ;; ===========子龙山人的配置======================
 
 
@@ -146,7 +157,10 @@
  ;; If there is more than one, they won't work right.
  '(company-idle-delay 0.05)
  '(company-minimum-prefix-length 1)
- '(package-selected-packages (quote (company))))
+ '(custom-safe-themes
+   (quote
+    ( "b89ae2d35d2e18e4286c8be8aaecb41022c1a306070f64a66fd114310ade88aa" default)))
+ '(package-selected-packages (quote (gruvbox-theme company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
