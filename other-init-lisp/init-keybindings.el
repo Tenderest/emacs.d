@@ -26,4 +26,10 @@
 
 ;; 更改默认的C-M-\缩进快捷键
 (global-set-key (kbd "C-M-\\") 'all-select)
+
+;; Company 有时候补全功能并不是非常理想，这时就可以使用 Hippie Expand 来完成补全。
+(global-set-key (kbd "s-/") 'hippie-expand)
+
+
+
 (provide 'init-keybindings)
