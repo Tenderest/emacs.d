@@ -23,4 +23,7 @@
 
 (global-set-key (kbd "<f11>") 'load-theme)
 
+
+;; 更改默认的C-M-\缩进快捷键
+(global-set-key (kbd "C-M-\\") 'all-select)
 (provide 'init-keybindings)

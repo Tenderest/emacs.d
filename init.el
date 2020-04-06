@@ -13,6 +13,12 @@
   (find-file "~/.emacs.d/init.el"))
 ;; 快捷键放在init-keybindings.el文件中
 
+(defun all-select ()
+  (interactive)
+  (indent-region (point-min) (point-max))
+  )
+;; 快捷键放在init-keybindings.el文件中
+
 
 (require 'init-ui)              ;; 视觉层配置
 (require 'init-org)             ;; Org 模式相关的全部设定
