@@ -7,8 +7,11 @@
  '(company-minimum-prefix-length 1)
  '(custom-safe-themes
    (quote
-    ( "b89ae2d35d2e18e4286c8be8aaecb41022c1a306070f64a66fd114310ade88aa" default)))
- '(package-selected-packages (quote (gruvbox-theme company))))
+    ("123a8dabd1a0eff6e0c48a03dc6fb2c5e03ebc7062ba531543dfbce587e86f2a" default)))
+ '(helm-youtube-key (quote Goo))
+ '(package-selected-packages (quote (darcula-theme gruvbox-theme company)))
+ '(popwin:popup-window-position (quote right))
+ '(popwin:popup-window-width 95))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

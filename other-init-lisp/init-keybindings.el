@@ -6,7 +6,8 @@
 (global-set-key (kbd "<f1> f") 'counsel-describe-function)
 (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
 
-
+;; 切换菜单和工具栏显示
+(global-set-key (kbd "<f10>") 'switch-menu-tool-bar)
 ;; 这一行代码，将函数 open-init-file 绑定到 <f2> 键上
 (global-set-key (kbd "<f12>") 'open-init-file)
 
@@ -24,12 +25,17 @@
 (global-set-key (kbd "<f11>") 'load-theme)
 
 
-;; 更改默认的C-M-\缩进快捷键
+;; 更改默认的C-M-\缩进快捷键，修改代码缩进问题
 (global-set-key (kbd "C-M-\\") 'all-select)
 
 ;; Company 有时候补全功能并不是非常理想，这时就可以使用 Hippie Expand 来完成补全。
 (global-set-key (kbd "s-/") 'hippie-expand)
 
+;; 修改复制粘帖的快捷键
+(global-set-key (kbd "C-S-c") 'clipboard-kill-ring-save)
+(global-set-key (kbd "C-S-v") 'clipboard-yank)
 
+;; 快速选中单词的快捷键，使用expand-region插件
+(global-set-key (kbd "C-=") 'er/expand-region)
 
 (provide 'init-keybindings)

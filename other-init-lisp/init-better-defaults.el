@@ -31,6 +31,18 @@
 ;; 开启括号匹配
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
+;; 光标在括号内时就高亮包含内容的两个括号
+(define-advice show-paren-function (:around (fn) fix-show-paren-function)
+  "Highlight enclosing parens."
+  (cond ((looking-at-p "\\s(") (funcall fn))
+	(t (save-excursion
+	     (ignore-errors (backward-up-list))
+	     (funcall fn)
+	     )
+	   )
+	)
+  )
+
 
 ;; Company 有时候补全功能并不是非常理想，这时就可以使用 Hippie Expand 来完成补全。
 (setq hippie-expand-try-function-list '(try-expand-debbrev
@@ -62,5 +74,23 @@
 (require 'dired-x)
 ;; 使用 (setq dired-dwin-target 1) 则可以使当一个窗口（frame）中存在两个分屏 （window）时，将另一个分屏自动设置成拷贝地址的目标。
 (setq dired-dwim-target t)
+
+
+;; 用于配置 Occur Mode 使其默认搜索当前被选中的或者在光标下的字符串
+(defun occur-dwim ()
+  "Call `occur' with a sane default."
+  (interactive)
+  (push (if (region-active-p)
+	    (buffer-substring-no-properties
+	     (region-beginning)
+	     (region-end))
+	  (let ((sym (thing-at-point 'symbol)))
+	    (when (stringp sym)
+	      (regexp-quote sym))))
+	regexp-history)
+  (call-interactively 'occur))
+(global-set-key (kbd "M-s o") 'occur-dwim)
+
+
 
 (provide 'init-better-defaults)
