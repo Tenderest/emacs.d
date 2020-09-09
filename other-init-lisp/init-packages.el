@@ -27,7 +27,7 @@
 		      ;; --- Themes ---
 		      monokai-theme
 		      gruvbox-theme
-		      ;; solarized-theme
+		      solarized-theme
 		      ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -49,8 +49,9 @@
 
 ;; ================插件的配置=========================
 ;; 启动石加载主题
-;;(load-theme 'monokai 1)
-(load-theme 'gruvbox t)
+load-theme 'monokai 1)
+;; (load-theme 'gruvbox t)
+;; (load-theme 'solarized-gruvbox-dark t)
 
 
 ;; 开启全局补全

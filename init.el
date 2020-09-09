@@ -19,7 +19,8 @@
   )
 ;; 快捷键放在init-keybindings.el文件中
 
-
+(with-eval-after-load 'org
+  (add-to-list 'org-export-backends 'md))
 
 
 
